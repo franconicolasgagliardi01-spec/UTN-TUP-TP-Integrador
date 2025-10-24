@@ -1,7 +1,7 @@
 # UTN-TUP-TP-Integrador
 
-Integrantes:
--Ramiro Quiroga
+Integrantes: 
+-Ramiro Quiroga 
 -Franco Gagliardi
 
 Descripcion del programa:
