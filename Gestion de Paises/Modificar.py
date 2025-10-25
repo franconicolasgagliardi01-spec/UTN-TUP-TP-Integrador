@@ -39,6 +39,7 @@ def actualizar_diccionario(paises): #Funcion que sirve para actualizar el diccio
 
 #Funcion para agregar paises al archivo
 def agregar_pais(paises):
+    print("-----------------------------------------------------")
     nombre = input("Ingrese el nombre del pais que desea agregar: ") #Ingreso nombre del pais
     while nombre.strip().capitalize() in paises or es_entero(nombre): #Validacion del nombre, capitalize()conviete todo en miniscula y la primer letra en mayuscula y strip es para los espacios en blanco
         if es_entero(nombre):
@@ -58,14 +59,14 @@ def agregar_pais(paises):
             print("La poblacion debe ser mayor a cero")
             poblacion = input("Ingrese la cantidad de poblacion del pais: ")
 
-    superficie = input("Ingrese la superficie del pais en metros cuadrados: ") #Ingreso la superficie
+    superficie = input("Ingrese la superficie del pais en km cuadrados: ") #Ingreso la superficie
     while not es_entero(superficie) or int(superficie) <= 0: #Valido la superficie
         if not es_entero(superficie):
             print("La superficie debe ser un numero")
-            superficie = input("Ingrese la superficie del pais en metros cuadrados: ")
+            superficie = input("Ingrese la superficie del pais en km cuadrados: ")
         else:
             print("La superficie debe ser mayor a cero")
-            superficie = input("Ingrese la superficie del pais en metros cuadrados: ")
+            superficie = input("Ingrese la superficie del pais en km cuadrados: ")
 
     continente = input("Ingrese el continente en el que se encuentra el pais: ") #Ingreso continente
     while not continente.strip().capitalize() in ["África","Antártida","Asia","Europa","América","Oceanía"]: #Valido continente
@@ -83,9 +84,11 @@ def quitar_pais(paises):
     with open(ruta, "r", encoding="utf-8") as archivo: #Verifico si el archivo tiene alguna linea
         lineas = archivo.readlines() #Creo una lista de strings que son las lineas
         if not lineas: #Veo si esta vacia la lista
+            print("-----------------------------------------------------")
             print("El archivo esta vacio....")
             return
 
+    print("-----------------------------------------------------")
     nombre = input("Escriba el nombre del pais que desea eliminar: ") #Ingreso nombre 
     while not nombre.strip().capitalize() in paises: #Valido nombre
         print("El nombre seleccionado no existe en la base de datos")

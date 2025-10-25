@@ -10,6 +10,7 @@ paises = {}
 #Menu secundario/Filtrar paises
 def menu_filtrar_paises(paises):
         while True: #Iteracion del menu
+            print("-----------------------------------------------------")
             ordenarPor = input("Filtrar países por: \n (1) Continente\n (2) Rango de población\n (3) Rango de superficie\n (4) Volver\n\n")
     
             while not ordenarPor.isdigit() or int(ordenarPor) not in [1, 2, 3, 4]: #Validacion de ordenarPor
@@ -24,13 +25,13 @@ def menu_filtrar_paises(paises):
             elif ordenarPor == 3:
                 Filtrar.rango_superficie(paises)
             elif ordenarPor == 4:
-                print("Volviendo al menú principal")
+                print("Volviendo al menú principal...")
                 break #Termino las iteraciones
 
 #Menu secundario/Ordenar paises
 def menu_ordenar_paises(paises):
     while True: #Iteracion del menu
-
+        print("-----------------------------------------------------")
         ordenarPor = input("Ordenar por: \n (1) Nombre\n (2) Población\n (3) Superficie\n (4) Volver\n\n")
     
         while not ordenarPor.isdigit() or int(ordenarPor) not in [1, 2, 3, 4]: #Validacion de ordenarPor
@@ -45,6 +46,7 @@ def menu_ordenar_paises(paises):
         elif ordenarPor == 3:
     
             while True: #Iteracion del submenu
+                print("-----------------------------------------------------")
                 filtrarPor = input("Filtrar por superficie: \n (a) Ascendente\n (b) Descendente\n (c) Volver\n\n")
                 while not filtrarPor.isalpha() or filtrarPor.lower() not in ["a", "b", "c"]: #Validacion de filtrarPor
                     filtrarPor = input("Error. Seleccione una opción válida:\n\n (a) Ascendente\n (b) Descendente\n (4) Volver\n\n")
@@ -59,12 +61,13 @@ def menu_ordenar_paises(paises):
                     break #Termino las iteraciones
     
         elif ordenarPor == 4:
-            print("Volviendo al menú principal")
+            print("Volviendo al menú principal...")
             break #Termino las iteraciones
 
 #Menu secundario/Estadisticas
 def menu_estadisticas(paises):
     while True: #Iteracion del menu
+        print("-----------------------------------------------------")
         ordenarPor = input("Mostrar: \n (1) País con mayor y menor población\n (2) Promedio de población\n (3) Promedio de superficie\n (4) Cantidad de países por continente\n (5) Volver\n\n")
     
         while not ordenarPor.isdigit() or int(ordenarPor) not in [1, 2, 3, 4, 5]: #Validacion de ordenarPor
@@ -81,7 +84,7 @@ def menu_estadisticas(paises):
         elif ordenarPor == 4:
             Mostrar.cantidad_paises_continente(paises)
         elif ordenarPor == 5:
-            print("Volviendo al menú principal")
+            print("Volviendo al menú principal...")
             break #Termino las iteraciones
 
 #Menú principal
@@ -95,8 +98,10 @@ while True: #Iteracion del menu principal
 
     Modificar.actualizar_diccionario(paises) #Pongo en el diccionario los datos del csv
 
+    print("-----------------------------------------------------")
     opcion = input("\nIngrese la opción deseada:\n (a) Buscar país\n (b) Filtrar países\n (c) Ordenar países\n (d) Estadísticas\n (e) Agregar país\n (f) Quitar país\n (g) Salir\n\n")
     while opcion.lower() not in ["a", "b", "c", "d", "e", "f", "g"]: #Validacion de la opcion ingresada
+        print("-----------------------------------------------------")
         opcion = input("Error. Seleccione una opción válida:\n\n (a) Buscar país\n (b) Filtrar países\n (c) Ordenar países\n (d) Estadísticas\n (e) Agregar país\n (f) Quitar país\n (g) Salir\n\n")
 
 #Opciones segun la variable opcion
@@ -113,5 +118,6 @@ while True: #Iteracion del menu principal
     elif opcion.lower() == "f":
         Modificar.quitar_pais(paises)
     elif opcion.lower() == "g":
-        print("\nCerrando programa")
+        print("-----------------------------------------------------")
+        print("Cerrando programa...")
         break #Termino las iteraciones
