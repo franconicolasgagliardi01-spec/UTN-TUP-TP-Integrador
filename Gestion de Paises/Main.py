@@ -86,12 +86,14 @@ def menu_estadisticas(paises):
 
 #Menú principal
 print("Bienvenido al sistema integral de gestión de países")
-error = Modificar.actualizar_diccionario(paises) #Pongo en el diccionario los datos del csv
 
 while True: #Iteracion del menu principal
 
+    error = Modificar.validar_archivo(paises) #Funcion que valida que el csv tenga el formato correcto
     if error: #En caso de error cierro el programa
         break
+
+    Modificar.actualizar_diccionario(paises) #Pongo en el diccionario los datos del csv
 
     opcion = input("\nIngrese la opción deseada:\n (a) Buscar país\n (b) Filtrar países\n (c) Ordenar países\n (d) Estadísticas\n (e) Agregar país\n (f) Quitar país\n (g) Salir\n\n")
     while opcion.lower() not in ["a", "b", "c", "d", "e", "f", "g"]: #Validacion de la opcion ingresada
@@ -107,11 +109,9 @@ while True: #Iteracion del menu principal
     elif opcion.lower() == "d":
         menu_estadisticas(paises)
     elif opcion.lower() == "e":
-        Modificar.agregar_pais()
-        Modificar.actualizar_diccionario(paises) #Pongo en el diccionario los datos del csv
+        Modificar.agregar_pais(paises)
     elif opcion.lower() == "f":
-        Modificar.quitar_pais()
-        Modificar.actualizar_diccionario(paises) #Pongo en el diccionario los datos del csv
+        Modificar.quitar_pais(paises)
     elif opcion.lower() == "g":
         print("\nCerrando programa")
         break #Termino las iteraciones
