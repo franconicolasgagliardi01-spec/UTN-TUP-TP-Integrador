@@ -1,7 +1,7 @@
 from pathlib import Path #Importo esta libreria para acceder al archivo
 ruta = Path(__file__).parent / "paises.csv" #Voy a la carpeta padre de Modificar.py y accedo a paises que se encuentra ahi
 
-#Funcion auxiliar para saber si un numero es entero
+#Funcion auxiliar para saber si un numero es entero-----------------------------------------------------------------------------------------------------------------------------
 def es_entero(cadena): 
     try:
         int(cadena)
@@ -9,9 +9,31 @@ def es_entero(cadena):
     except ValueError:
         return False
 
+#Funcion que valida el csv------------------------------------------------------------------------------------------------------------------------------------------------------
 def validar_archivo(paises):
     with open(ruta,"r", encoding="utf-8") as archivo: #Abro el archivo, la parte de encoding es para que entienda acentos
-        for linea in archivo: #Vario en funcion de las filas del archivo
+        #Parte que valida si el archivo esta vacio
+        lineas = archivo.readlines() #Creo una lista de strings que son las lineas
+        if not lineas: #Veo si esta vacia la lista
+            print("Error: El archivo esta vacio")
+            return True #Retorno que hubo error
+
+        #Parte que valida la estructura del archivo
+        for linea in lineas:
+            linea = linea.strip()
+            if linea == "": #En caso de que haya una fila vacia
+                print("Error, una de las filas del csv etsa vacia: Revise el archivo csv")
+                return True #Retorno que hubo error
+            coma = 0
+            for letra in linea: #Veo cuantas comas tiene cada linea
+                if letra == ",":
+                    coma += 1
+            if coma != 3: #Si la linea tiene una cantidad distinta de comas que 3 retorno error
+                print("Error, una de las filas del csv contine una cantidad incorrecta de comas: Revise el archivo csv")
+                return True #Retorno que hubo error
+
+        #Parte que valida el tipo de los elementos del archivo
+        for linea in lineas: 
             pais = linea.strip().split(",") #Guardo la fila
 
             if pais[0].isdigit():#Valido el nombre
@@ -24,9 +46,10 @@ def validar_archivo(paises):
                 print(f"Error, el continente {pais[3]} en el pais {pais[0]} no es valido: Revise el archivo csv")
                 print("Continentes validos: África, Antártida, Asia, Europa, América, Oceanía")
                 return True #Retorno que hubo un error
+
     return False #Retorno que no hubo error
 
-#Funcion para actualizar el diccionario
+#Funcion para actualizar el diccionario-----------------------------------------------------------------------------------------------------------------------------------------
 def actualizar_diccionario(paises): #Funcion que sirve para actualizar el diccionario en base al archivo paises
     with open(ruta,"r", encoding="utf-8") as archivo: #Abro el archivo, la parte de encoding es para que entienda acentos
         for linea in archivo: #Vario en funcion de las filas del archivo
@@ -37,7 +60,7 @@ def actualizar_diccionario(paises): #Funcion que sirve para actualizar el diccio
 
             paises[pais[0]] = pais #Pongo el nombre como clave y la lista pais como valor
 
-#Funcion para agregar paises al archivo
+#Funcion para agregar paises al archivo-----------------------------------------------------------------------------------------------------------------------------------------
 def agregar_pais(paises):
     print("-----------------------------------------------------")
     nombre = input("Ingrese el nombre del pais que desea agregar: ") #Ingreso nombre del pais
@@ -79,15 +102,8 @@ def agregar_pais(paises):
         archivo.write("\n"+nombre+","+poblacion+","+superficie+","+continente)
     print("Pais cargado en el archivo...")
 
-#Funcion para eliminar paises del archivo
+#Funcion para eliminar paises del archivo---------------------------------------------------------------------------------------------------------------------------------------
 def quitar_pais(paises):
-    with open(ruta, "r", encoding="utf-8") as archivo: #Verifico si el archivo tiene alguna linea
-        lineas = archivo.readlines() #Creo una lista de strings que son las lineas
-        if not lineas: #Veo si esta vacia la lista
-            print("-----------------------------------------------------")
-            print("El archivo esta vacio....")
-            return
-
     print("-----------------------------------------------------")
     nombre = input("Escriba el nombre del pais que desea eliminar: ") #Ingreso nombre 
     while not nombre.strip().capitalize() in paises: #Valido nombre
