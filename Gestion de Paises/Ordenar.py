@@ -101,7 +101,7 @@ def por_poblacion(paises):
             print("\nTop 3 países más poblados:")
             #Muestro los 3 primeros países de la lista, e decir, los más poblados
             for nombre, poblacion in top_paises[:3]:
-             print(f"- {nombre}: {poblacion:,} habitantes")
+                print(f"- {nombre}: {poblacion:,} habitantes")
         
         #En caso de que la opción sea "D" el bucle se rompe y vuelve al submenú "Ordenar por:"
         elif opcion == "D":

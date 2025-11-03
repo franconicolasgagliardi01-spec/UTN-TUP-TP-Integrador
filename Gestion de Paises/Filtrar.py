@@ -112,7 +112,7 @@ def rango_superficie(paises):
             #Si la lista paises_en_rango está vacía (por lo que no se encuentraron países en tal rango)
             print(f"No se encontraron países entre {rangoMin:,} y {rangoMax:,} km² de superficie")
 
-         #Validación de salida
+        #Validación de salida
         while True:
             salida = input("\n¿Desea ordenar paises por rango de superficie nuevamente?\n - Si desea continuar presione ¨s¨\n - Si desea salir presione ¨n¨\n\n").lower()
             if salida == "s":
