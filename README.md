@@ -5,7 +5,7 @@ Integrantes:<br>
 -Franco Gagliardi<br>
 
 Video:<br>
-C:\Users\Franco Gagliardi\Documents\Facultad\Repositorios\UTN-TUP-TP-Integrador <br>
+https://youtu.be/fPUdwVmHfuk <br>
 
 Descripcion del programa:<br>
 -El programa del repositorio cuenta con una estructura modular y bien comentada para garantizar una buena comprension del mismo.<br>
