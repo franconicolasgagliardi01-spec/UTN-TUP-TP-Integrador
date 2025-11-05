@@ -16,32 +16,37 @@ Participación de los integrantes:<br>
 Instrucciones de uso:<br>
 -Ejecutar el archivo main.py.<br>
 -Seleccionar una opción del menú:<br>
--Mostrar países<br>
--Modificar datos<br>
--Filtrar por continente o población<br>
--Ordenar por nombre o población<br>
+-Buscar país<br>
+-Filtrar paises<br>
+-Ordenar países<br>
+-Ver estadisticas<br>
+-Agregar país<br>
+-Quitar país<br>
+-Salir<br>
 -Seguir las instrucciones en pantalla para completar la acción.<br>
 
 Ejemplo de entrada:<br>
 
 Ingrese una opción:<br>
-1 - Mostrar países<br>
-2 - Modificar país<br>
-3 - Filtrar países<br>
-4 - Ordenar países<br>
-5 - Salir<br>
+1 - Buscar país<br>
+2 - Filtrar paises<br>
+3 - Ordenar países<br>
+4 - Estadisticas<br>
+5 - Agregar país<br>
+6 - Quitar país<br>
+7 - Salir<br>
 
-Si el usuario elige 2, se le pedirá:<br>
+Si el usuario elige 1, se le pedirá:<br>
 
-Ingrese el nombre del país a modificar:<br>
-> Argentina<br>
-Ingrese el nuevo valor de población:<br>
-> 47000000<br>
+Ingrese el nombre del pais que desea buscar:<br>
+-Argentina<br>
 
 Ejemplo de salida:<br>
 
-País modificado correctamente.<br>
-Argentina ahora tiene una población de 47.000.000 habitantes.
+Pais Argentina encontrado:<br>
+Poblacion: 45376763<br>
+Superficie: 2780400 km cuadrados<br>
+Continente: América
 
 
 
